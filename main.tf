@@ -1,10 +1,10 @@
-terraform {
-  required_providers {
-    openshift = {
-      source = "llomgui/openshift"
-      version = "1.1.0"
-    }
-  }
+provider "kubernetes" {}
+
+locals {
+  decoded_yaml = yamldecode(file("${path.module}/apps/vm/basic_rhel9_vm.yaml"))
 }
 
-provider "openshift" {}
+resource "kubernetes_manifest" "rhwl9_vm" {
+  for_each = { for k, v in local.decoded_yaml : k => v }
+  manifest = each.value
+}
