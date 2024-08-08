@@ -1,0 +1,27 @@
+ apiVersion: kubevirt.io/v1
+ kind: VirtualMachine
+ metadata:
+  name: rhel-9-minimal
+ spec:
+  dataVolumeTemplates:
+    - metadata:
+        name: rhel-9-minimal-volume
+      spec:
+        sourceRef:
+          kind: DataSource
+          name: rhel9 
+          namespace: openshift-virtualization-os-images 
+        storage: {}
+  instancetype:
+    name: u1.medium 
+  preference:
+    name: rhel.9 
+  running: true
+  template:
+    spec:
+      domain:
+        devices: {}
+      volumes:
+        - dataVolume:
+            name: rhel-9-minimal-volume
+          name: rootdisk
