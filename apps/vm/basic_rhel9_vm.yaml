@@ -2,6 +2,7 @@
  kind: VirtualMachine
  metadata:
   name: rhel-9-minimal
+  namespace: default
  spec:
   dataVolumeTemplates:
     - metadata:
