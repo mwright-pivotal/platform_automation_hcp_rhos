@@ -1,5 +1,7 @@
 provider "kubernetes" {
   host                   = "https://kubernetes.default.svc"
+  file("/var/run/secrets/kubernetes.io/serviceaccount/token")
+  cluster_ca_certificate = file("/var/run/secrets/kubernetes.io/serviceaccount/ca.crt")
 }
 
 terraform {
