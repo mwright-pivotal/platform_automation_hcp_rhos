@@ -1,14 +1,15 @@
 provider "kubernetes" {}
 
-locals {
-  decoded_yaml = yamldecode(file("${path.module}/apps/vm/basic_rhel9_vm.yaml"))
+terraform {
+  required_providers {
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "2.31.0"
+    }
+  }
 }
 
-output "VMyaml" {
-  value = "${local.decoded_yaml}"
+resource "kubernetes_manifest" "name" {
+  manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/basic_rhel9_vm.yaml"))
 }
 
-resource "kubernetes_manifest" "rhel9_vm" {
-  for_each = { for k, v in local.decoded_yaml : k => v }
-  manifest = each.value
-}
