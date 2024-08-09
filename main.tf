@@ -19,7 +19,8 @@ resource "kubernetes_manifest" "rook-common" {
 }
 
 resource "kubernetes_manifest" "rook-operator-openshift" {
-  manifest = provider::kubernetes::manifest_decode(file("${path.module}/infra/rook/operator-openshift.yaml"))
+  for_each = { for k, v in provider::kubernetes::manifest_decode_multi(file("${path.module}/infra/rook/operator-openshift.yaml")) : k => v }
+  manifest = each.value
 }
 
 resource "kubernetes_manifest" "rook-cluster" {
@@ -27,7 +28,8 @@ resource "kubernetes_manifest" "rook-cluster" {
 }
 
 resource "kubernetes_manifest" "rook-filesystem" {
-  manifest = provider::kubernetes::manifest_decode(file("${path.module}/infra/rook/filesystem.yaml"))
+  for_each = { for k, v in provider::kubernetes::manifest_decode_multi(file("${path.module}/infra/rook/filesystem.yaml")) : k => v }
+  manifest = each.value
 }
 
 resource "kubernetes_manifest" "rook-toolbox" {
