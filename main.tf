@@ -13,7 +13,27 @@ terraform {
   }
 }
 
-resource "kubernetes_manifest" "name" {
+resource "kubernetes_manifest" "rook-common" {
+  manifest = provider::kubernetes::manifest_decode(file("${path.module}/infra/rook/common.yaml"))
+}
+
+resource "kubernetes_manifest" "rook-operator-openshift" {
+  manifest = provider::kubernetes::manifest_decode(file("${path.module}/infra/rook/operator-openshift.yaml"))
+}
+
+resource "kubernetes_manifest" "rook-cluster" {
+  manifest = provider::kubernetes::manifest_decode(file("${path.module}/infra/rook/cluster.yaml"))
+}
+
+resource "kubernetes_manifest" "rook-filesystem" {
+  manifest = provider::kubernetes::manifest_decode(file("${path.module}/infra/rook/filesystem.yaml"))
+}
+
+resource "kubernetes_manifest" "rook-toolbox" {
+  manifest = provider::kubernetes::manifest_decode(file("${path.module}/infra/rook/toolbox.yaml"))
+}
+
+resource "kubernetes_manifest" "rhel9-vm" {
   manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/basic_rhel9_vm.yaml"))
 }
 
