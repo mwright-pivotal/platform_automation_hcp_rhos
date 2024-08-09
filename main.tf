@@ -14,7 +14,8 @@ terraform {
 }
 
 resource "kubernetes_manifest" "rook-common" {
-  manifest = provider::kubernetes::manifest_decode(file("${path.module}/infra/rook/common.yaml"))
+  for_each = { for k, v in provider::kubernetes::manifest_decode_multi(file("${path.module}/infra/rook/common.yaml")) : k => v }
+  manifest = each.value
 }
 
 resource "kubernetes_manifest" "rook-operator-openshift" {
