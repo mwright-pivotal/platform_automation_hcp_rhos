@@ -13,6 +13,16 @@ terraform {
   }
 }
 
+resource "kubernetes_manifest" "namespace_rook_ceph" {
+  manifest = {
+    "apiVersion" = "v1"
+    "kind" = "Namespace"
+    "metadata" = {
+      "name" = "rook-ceph"
+    }
+  }
+}
+
 resource "kubernetes_manifest" "rook-common" {
   for_each = { for k, v in provider::kubernetes::manifest_decode_multi(file("${path.module}/infra/rook/common.yaml")) : k => v }
   manifest = each.value
