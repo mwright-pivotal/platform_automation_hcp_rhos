@@ -35,6 +35,13 @@ resource "kubernetes_manifest" "rook-operator-openshift" {
 
 resource "kubernetes_manifest" "rook-cluster" {
   manifest = provider::kubernetes::manifest_decode(file("${path.module}/infra/rook/cluster.yaml"))
+  field_manager {
+    # set the name of the field manager
+    name = "myteam"
+
+    # force field manager conflicts to be overridden
+    force_conflicts = true
+  }
 }
 
 resource "kubernetes_manifest" "rook-filesystem" {
