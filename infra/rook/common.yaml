@@ -709,6 +709,24 @@ subjects:
     name: rook-ceph-system
     namespace: rook-ceph # namespace:operator
 ---
+# Grant the rook system daemons cluster-wide access to manage the Rook CRDs, PVCs, and storage classes
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: rook-ceph-global-openshift-ca
+  labels:
+    operator: rook
+    storage-backend: ceph
+    app.kubernetes.io/part-of: rook-ceph-operator
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: rook-ceph-system
+    namespace: rook-ceph # namespace:operator
+---
 # Allow the ceph mgr to access cluster-wide resources necessary for the mgr modules
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
