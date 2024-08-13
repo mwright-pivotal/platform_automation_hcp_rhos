@@ -47,6 +47,13 @@ resource "kubernetes_manifest" "rook-cluster" {
 resource "kubernetes_manifest" "rook-filesystem" {
   for_each = { for k, v in provider::kubernetes::manifest_decode_multi(file("${path.module}/infra/rook/filesystem.yaml")) : k => v }
   manifest = each.value
+  field_manager {
+    # set the name of the field manager
+    name = "myteam"
+
+    # force field manager conflicts to be overridden
+    force_conflicts = true
+  }
 }
 
 resource "kubernetes_manifest" "rook-toolbox" {
