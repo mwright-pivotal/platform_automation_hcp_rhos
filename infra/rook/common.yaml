@@ -719,6 +719,9 @@ subjects:
   - kind: ServiceAccount
     name: rook-ceph-system
     namespace: rook-ceph # namespace:operator
+  - kind: ServiceAccount
+    name: rook-ceph-default
+    namespace: rook-ceph # namespace:operator
 ---
 # Allow the ceph mgr to access cluster-wide resources necessary for the mgr modules
 kind: ClusterRoleBinding
