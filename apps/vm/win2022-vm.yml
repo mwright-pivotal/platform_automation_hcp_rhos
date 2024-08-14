@@ -36,9 +36,9 @@ spec:
       - cloudInitNoCloud:
           userData: |
             #cloud-config
-            hostname: harbor
+            hostname: print-server
             ssh_pwauth: True
             disable_root: false
             ssh_authorized_keys:
-            - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDXBGq7JttmNzMh3H7QOasopyITZ4oPBllKdvwkCjlhQH3DFzNTTmZZeZHyieynDzIu1P7yuTAyTA/+pPUciP7MUFFcSgMBXdqwBFJsMbsYrwKgWs4VAXoen9ogs6s6LXfJURdUwlIDv0/eCgqhFQgLANowYKnJHQoMlZKx9BELC+rTqck9IE1r1F+iuuCenkYU+QDxpzFOx+Vn0e1AEGQHS2PJ56OLos8nmO2CPU+ettptDrB0XiEmkydKVCD5dUXsTfSylXR4P/u3Cpu8kVR9aAZmKxJSnt+Gw+jxCRColiArODiTGtzgkBHPxvUG9wfoqFgnmbJ3uP4EghByeDJnjhW98vDEVKUhicpDHy/CQasN1UNfaLDPS9KR1zLk/zqPNOFBV4sG7BYuDAtaj8exic15FXEgYWJuQR3m8cowhOcYmLAm3Z6zoZqjfC6tQHH8/DKMzgk75OBHxZ/oaO7xW+NsJO/1hsSaglDWh0i2z5G+5Wywf3gdnq2msTFeNDM= mwright@edge-dev-bm
+            - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDX...
         name: cloudinitdisk
