@@ -16,3 +16,5 @@ ssh $HOST1 "sudo rm -r -f  /var/lib/rook/*"
 ssh $HOST3 "sudo wipefs -a /dev/sda"
 ssh $HOST2 "sudo wipefs -a /dev/sdb"
 ssh $HOST1 "sudo wipefs -a /dev/sdb"
+
+kubectl delete ns rook-ceph
