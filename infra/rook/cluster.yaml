@@ -260,15 +260,15 @@ spec:
     # Individual nodes and their config can be specified as well, but 'useAllNodes' above must be set to false. Then, only the named
     # nodes below will be used as storage resources.  Each node's 'name' field should match their 'kubernetes.io/hostname' label.
     nodes:
-    - name: "192.168.0.249"
+    - name: "host1"
       #deviceFilter: "^sdb"
       devices: # specific devices to use for storage can be specified for each node
       - name: "sdb"
-    - name: "192.168.0.250"
+    - name: "host2"
       #deviceFilter: "^sdb"
       devices: # specific devices to use for storage can be specified for each node
       - name: "sdb"
-    - name: "192.168.0.251"
+    - name: "host3"
       #deviceFilter: "^sdb"
       devices: # specific devices to use for storage can be specified for each node
       - name: "sda"
