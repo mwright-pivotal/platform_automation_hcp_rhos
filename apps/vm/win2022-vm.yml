@@ -4,6 +4,7 @@ metadata:
   labels:
     kubevirt.io/os: windows
   name: win2022
+  namespace: default
 spec:
   running: true
   template:
