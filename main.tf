@@ -68,6 +68,6 @@ resource "kubernetes_manifest" "rook-toolbox" {
 }
 
 resource "kubernetes_manifest" "windows2022-vm" {
-  manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/win2022-vm.yaml"))
+  manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/win2022-vm.yml"))
 }
 
