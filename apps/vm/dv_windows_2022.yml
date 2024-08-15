@@ -1,7 +1,7 @@
 apiVersion: cdi.kubevirt.io/v1beta1
 kind: DataVolume
 metadata:
-  name: "packer-windwos-2022"
+  name: "packer-windows-2022"
   namespace: default
 spec:
   storage:
