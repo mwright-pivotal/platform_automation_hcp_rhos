@@ -3,7 +3,7 @@ kind: VirtualMachine
 metadata:
   labels:
     kubevirt.io/os: windows
-  name: win2022
+  name: win2022-print-server
   namespace: default
 spec:
   running: true
