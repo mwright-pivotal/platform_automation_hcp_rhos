@@ -32,11 +32,11 @@ spec:
       volumes:
       - name: disk0
         persistentVolumeClaim:
-          claimName: windows-2k22-virtio-peach-cat-32-volume
+          claimName: packer-windwos-2022
       - cloudInitNoCloud:
           userData: |
             #cloud-config
-            hostname: harbor
+            hostname: print-server
             ssh_pwauth: True
             disable_root: false
             ssh_authorized_keys:
