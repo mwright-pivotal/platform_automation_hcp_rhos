@@ -33,7 +33,7 @@ spec:
       volumes:
       - name: disk0
         persistentVolumeClaim:
-          claimName: packer-windwos-2022
+          claimName: packer-windows-2022
       - cloudInitNoCloud:
           userData: |
             #cloud-config
