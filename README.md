@@ -27,3 +27,10 @@ This process leverages desired state, GitOps to apply infrastructure as code for
 12. Use HCP Vault to manage platform secrets
 13. Use HCP Vault to manage credentials in a Windows VM
 
+Screenshots
+<img width="1252" alt="image" src="https://github.com/user-attachments/assets/96a02fdb-3d09-41fb-bc1b-8b879f39c2dc"><br/>
+<img width="1636" alt="image" src="https://github.com/user-attachments/assets/14303d2e-1606-48ab-b6d9-a3da738e0f82"><br/>
+<img width="1717" alt="image" src="https://github.com/user-attachments/assets/e250b494-f5e1-4c27-a701-e053549f5ec0"><br/>
+<img width="1408" alt="image" src="https://github.com/user-attachments/assets/553eb674-33ab-4d51-ba50-bdca7c5753dd"><br/>
+
+
