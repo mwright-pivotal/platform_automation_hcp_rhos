@@ -74,3 +74,6 @@ resource "kubernetes_manifest" "windows2022-vm" {
   manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/win2022-vm.yml"))
 }
 
+resource "kubernetes_manifest" "computervision-ai" {
+  manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/ai/ultralytics.yaml"))
+}
