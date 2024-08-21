@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ultralytics-notebook
+  labels:
+    app: ultralytics-notebook
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    name: http
+    targetPort: 8888
+    nodePort: 30001
+  selector:
+    app: ultralytics
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ultralytics
+  labels:
+    app: ultralytics
+spec:
+  securityContext:
+    fsGroup: 0
+  containers:
+  - name: ultralytics
+    #image: tensorflow/tensorflow:latest-gpu-jupyter
+    image: quay.io/jupyter/tensorflow-notebook:cuda-latest
+    resources:
+      limits:
+        nvidia.com/gpu: 1
+    ports:
+    - containerPort: 8888
+      name: notebook
