@@ -12,16 +12,18 @@ This process leverages desired state, GitOps to apply infrastructure as code for
 
 1. 3 on-prem, physical hosts with NVidia GPU (optional), 2 disk partitions
 2. Basic flat network, with egress outbound only to public internet
-3. Access to Redhat Hybrid Cloud Console and Hashicorp Cloud Platform
-   a. console.redhat.com
+3. Access to Redhat Hybrid Cloud Console and Hashicorp Cloud Platform\
+   a. console.redhat.com\
    b. portal.cloud.hashicorp.com
-4. Use Redhat Hybrid Cloud to define a new Openshift Cluster and generate bootstrap images for bare metal hosts
+4. Use Redhat Hybrid Cloud to define a new, vanilla Openshift Cluster and generate bootstrap images for bare metal hosts
 5. Onboard newly discovered hosts and assign to cluster with dual role, Controlplane and Worker roles
 6. Deploy HCP Terraform Operator into newly formed Cluster from Redhat console
 7. Configure HCP org and workspace to leverage new TF Agent Pool by default
-8. Configure HCP Terraform workspace to trigger from VCS, referencing a fork of this repo.
-9. Use Packer and HCP Packer registry to manage VM image build pipelines and Vulerability Patch Management
-10. Use HCP Vault Radar to ensure no secrets are leaked
-11. Use HCP Vault to manage platform secrets
-12. Use HCP Vault to manage credentials in a Windows VM
+8. Configure HCP Terraform workspace to trigger from VCS, referencing a fork of this repo.\
+   a. deploys clustered filesystem using Rook Ceph\
+   b. adds NVidia GPU Operator and drivers
+10. Use Packer and HCP Packer registry to manage VM image build pipelines and Vulerability Patch Management
+11. Use HCP Vault Radar to ensure no secrets are leaked
+12. Use HCP Vault to manage platform secrets
+13. Use HCP Vault to manage credentials in a Windows VM
 
