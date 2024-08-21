@@ -6,7 +6,7 @@ The method of delivery intends to highlight Infrastructure Lifecycle Management 
 
 If we are to consider investing in alternative virtualization platforms for private datacenter, then we want to drive better business outcomes than what has been achieved with the incumbent platform.   Examples of business outcomes to improve upon are addressing Cyber Materiality, Reduction of monolithic vendor/Concentration Risk, Policy Driven Private Cloud Cost Containment.
 
-## High level recipe,
+## High level recipe
 
 1. 3 on-prem, physical hosts with NVidia GPU (optional), 2 disk partitions
 2. Basic flat network, with egress outbound only to public internet
