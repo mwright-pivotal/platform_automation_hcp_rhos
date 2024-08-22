@@ -38,7 +38,6 @@ spec:
       volumeMounts:
   volumes:
   restartPolicy: Never
-MANIFEST:
 ---
 # Source: vault/templates/injector-network-policy.yaml
 apiVersion: networking.k8s.io/v1
@@ -61,7 +60,6 @@ spec:
       - port: 8080
         protocol: TCP
 ---
-# Source: vault/templates/injector-serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -72,8 +70,6 @@ metadata:
     app.kubernetes.io/instance: vault
     app.kubernetes.io/managed-by: Helm
 ---
-# Source: vault/templates/server-serviceaccount.yaml
-apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: vault
@@ -84,7 +80,6 @@ metadata:
     app.kubernetes.io/instance: vault
     app.kubernetes.io/managed-by: Helm
 ---
-# Source: vault/templates/injector-clusterrole.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -102,7 +97,6 @@ rules:
     - "watch"
     - "patch"
 ---
-# Source: vault/templates/injector-clusterrolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
