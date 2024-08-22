@@ -68,7 +68,15 @@ resource "kubernetes_manifest" "rook-toolbox" {
 }
 
 resource "kubernetes_manifest" "vault" {
-  manifest = provider::kubernetes::manifest_decode(file("${path.module}/infra/vault/install.yaml"))
+  for_each = { for k, v in provider::kubernetes::manifest_decode_multi(file("${path.module}/infra/vault/install.yaml")) : k => v }
+  manifest = each.value
+  field_manager {
+    # set the name of the field manager
+    name = "myteam"
+
+    # force field manager conflicts to be overridden
+    force_conflicts = true
+  }
 }
 
 resource "kubernetes_manifest" "windows2022-vm-import" {
@@ -79,5 +87,13 @@ resource "kubernetes_manifest" "windows2022-vm" {
 }
 
 resource "kubernetes_manifest" "computervision-ai" {
-  manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/ai/ultralytics.yaml"))
+  for_each = { for k, v in provider::kubernetes::manifest_decode_multi(file("${path.module}/apps/ai/ultralytics.yaml")) : k => v }
+  manifest = each.value
+  field_manager {
+    # set the name of the field manager
+    name = "myteam"
+
+    # force field manager conflicts to be overridden
+    force_conflicts = true
+  }
 }
