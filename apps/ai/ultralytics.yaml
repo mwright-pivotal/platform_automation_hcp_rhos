@@ -3,6 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ultralytics-notebook
+  namespace: default
   labels:
     app: ultralytics-notebook
 spec:
@@ -18,7 +19,8 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ultralytics
+  name: ultralyticsa
+  namespace: default
   labels:
     app: ultralytics
 spec:
