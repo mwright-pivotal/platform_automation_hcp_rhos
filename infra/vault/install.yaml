@@ -70,6 +70,7 @@ metadata:
     app.kubernetes.io/instance: vault
     app.kubernetes.io/managed-by: Helm
 ---
+apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: vault
