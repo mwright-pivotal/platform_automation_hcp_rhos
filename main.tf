@@ -23,6 +23,10 @@ resource "kubernetes_manifest" "namespace_rook_ceph" {
   }
 }
 
+module "rook" {
+   source = "./infra/rook"
+}
+
 resource "kubernetes_manifest" "rook-common" {
   for_each = { for k, v in provider::kubernetes::manifest_decode_multi(file("${path.module}/infra/rook/common.yaml")) : k => v }
   manifest = each.value
