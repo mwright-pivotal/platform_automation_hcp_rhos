@@ -13,14 +13,11 @@ terraform {
   }
 }
 
-resource "kubernetes_manifest" "namespace_rook_ceph" {
-  manifest = {
-    "apiVersion" = "v1"
-    "kind" = "Namespace"
-    "metadata" = {
-      "name" = "rook-ceph"
-    }
+resource "kubernetes_namespace" "rook-ceph" {
+  metadata {
+    name = "rook-ceph"
   }
+  wait_for_default_service_account = true
 }
 
 module "rook" {
