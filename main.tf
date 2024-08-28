@@ -22,6 +22,7 @@ resource "kubernetes_namespace" "rook-ceph" {
 
 module "rook" {
    source = "./infra/rook"
+   depends_on = [kubernetes_namespace.rook-ceph]
 }
 
 resource "kubernetes_manifest" "vault" {
