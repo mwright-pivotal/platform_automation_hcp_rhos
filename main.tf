@@ -20,9 +20,14 @@ resource "kubernetes_namespace" "rook-ceph" {
   wait_for_default_service_account = true
 }
 
-module "rook" {
+module "rook-operator" {
    source = "./infra/rook"
    depends_on = [kubernetes_namespace.rook-ceph]
+}
+
+module "rook-cluster" {
+   source = "./infra/rook/cluster"
+   depends_on = [kubernetes_manifest.deployment_rook_ceph_rook_ceph_operator]
 }
 
 resource "kubernetes_manifest" "vault" {
