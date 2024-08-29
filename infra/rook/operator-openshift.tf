@@ -145,6 +145,10 @@ resource "kubernetes_manifest" "configmap_rook_ceph_rook_ceph_operator_config" {
   }
 }
 
+output "operator" {
+  value = "done"
+}
+
 resource "kubernetes_manifest" "deployment_rook_ceph_rook_ceph_operator" {
   manifest = {
     "apiVersion" = "apps/v1"
