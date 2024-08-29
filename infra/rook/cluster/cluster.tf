@@ -130,7 +130,7 @@ resource "kubernetes_manifest" "cephcluster_rook_ceph_rook_ceph" {
             "name" = "host1"
           },
           {
-            "deviceFilter" = "sdb"
+            "deviceFilter" = "sdc"
             "name" = "host2"
           },
           {

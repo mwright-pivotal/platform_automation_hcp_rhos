@@ -27,7 +27,7 @@ module "rook-operator" {
 
 module "rook-cluster" {
    source = "./infra/rook/cluster"
-   depends_on = [module.rook-operator]
+   depends_on = [module.rook-operator.kubernetes_manifest.serviceaccount_rook_ceph_rook_ceph_system]
 }
 
 resource "kubernetes_manifest" "vault" {

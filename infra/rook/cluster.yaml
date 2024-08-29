@@ -262,7 +262,7 @@ spec:
     - name: "host1"
       deviceFilter: "sdb"
     - name: "host2"
-      deviceFilter: "sdb"
+      deviceFilter: "sdc"
     - name: "host3"
       deviceFilter: "sda"
     #   - name: "172.17.4.301"
