@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   storage:
-    storageClassName: rook-ceph-block
+    storageClassName: rook-cephfs
     resources:
       requests:
         storage: 60Gi
