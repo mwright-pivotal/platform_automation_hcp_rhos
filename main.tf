@@ -49,14 +49,6 @@ resource "kubernetes_manifest" "windows2022-vm" {
   manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/win2022-vm.yml"))
 }
 
-resource "kubernetes_manifest" "computervision-ai" {
-  for_each = { for k, v in provider::kubernetes::manifest_decode_multi(file("${path.module}/apps/ai/ultralytics.yaml")) : k => v }
-  manifest = each.value
-  field_manager {
-    # set the name of the field manager
-    name = "myteam"
-
-    # force field manager conflicts to be overridden
-    force_conflicts = true
-  }
+module "ai-workspace" {
+   source = "./apps/ai"
 }
