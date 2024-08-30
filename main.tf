@@ -20,15 +20,15 @@ resource "kubernetes_namespace" "rook-ceph" {
   wait_for_default_service_account = true
 }
 
-module "rook-operator" {
-   source = "./infra/rook"
-   depends_on = [kubernetes_namespace.rook-ceph]
-}
+#module "rook-operator" {
+#   source = "./infra/rook"
+#   depends_on = [kubernetes_namespace.rook-ceph]
+#}
 
-module "rook-cluster" {
-   source = "./infra/rook/cluster"
-   depends_on = [module.rook-operator.operator]
-}
+#module "rook-cluster" {
+#   source = "./infra/rook/cluster"
+#   depends_on = [module.rook-operator.operator]
+#}
 
 resource "kubernetes_manifest" "vault" {
   for_each = { for k, v in provider::kubernetes::manifest_decode_multi(file("${path.module}/infra/vault/install.yaml")) : k => v }

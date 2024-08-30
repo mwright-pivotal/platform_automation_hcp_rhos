@@ -9,7 +9,7 @@ apiVersion: ceph.rook.io/v1
 kind: CephFilesystem
 metadata:
   name: myfs
-  namespace: rook-ceph # namespace:cluster
+  namespace: openshift-storage # namespace:cluster
 spec:
   # The metadata pool spec. Must use replication.
   metadataPool:
@@ -141,7 +141,7 @@ apiVersion: ceph.rook.io/v1
 kind: CephFilesystemSubVolumeGroup
 metadata:
   name: myfs-csi # lets keep the svg crd name same as `filesystem name + csi` for the default csi svg
-  namespace: rook-ceph # namespace:cluster
+  namespace: openshift-storage # namespace:cluster
 spec:
   # The name of the subvolume group. If not set, the default is the name of the subvolumeGroup CR.
   name: csi
