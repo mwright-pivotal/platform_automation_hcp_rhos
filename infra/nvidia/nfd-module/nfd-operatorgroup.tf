@@ -1,3 +1,9 @@
+provider "kubernetes" {
+  host                   = "https://kubernetes.default.svc"
+  token = file("/var/run/secrets/kubernetes.io/serviceaccount/token")
+  cluster_ca_certificate = file("/var/run/secrets/kubernetes.io/serviceaccount/ca.crt")
+}
+
 resource "kubernetes_manifest" "namespace_openshift_nfd" {
   manifest = {
     "apiVersion" = "v1"
