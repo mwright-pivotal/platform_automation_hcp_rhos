@@ -13,6 +13,7 @@ resource "kubernetes_manifest" "namespace_openshift_nfd" {
 }
 
 resource "kubernetes_manifest" "operatorgroup_openshift_nfd_openshift_nfd" {
+  depends_on = ["kubernetes_manifest.namespace_openshift_nfd"]
   manifest = {
     "apiVersion" = "operators.coreos.com/v1"
     "kind" = "OperatorGroup"
@@ -30,6 +31,7 @@ resource "kubernetes_manifest" "operatorgroup_openshift_nfd_openshift_nfd" {
 }
 
 resource "kubernetes_manifest" "subscription_openshift_nfd_nfd" {
+  depends_on = ["kubernetes_manifest.namespace_openshift_nfd"]
   manifest = {
     "apiVersion" = "operators.coreos.com/v1alpha1"
     "kind" = "Subscription"
