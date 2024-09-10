@@ -13,22 +13,10 @@ terraform {
   }
 }
 
-resource "kubernetes_namespace" "rook-ceph" {
-  metadata {
-    name = "rook-ceph"
-  }
-  wait_for_default_service_account = true
-}
-
-#module "rook-operator" {
-#   source = "./infra/rook"
-#   depends_on = [kubernetes_namespace.rook-ceph]
-#}
-
 #module "rook-cluster" {
-#   source = "./infra/rook/cluster"
-#   depends_on = [module.rook-operator.operator]
-#}
+   source = "./infra/rook/cluster"
+   depends_on = [module.rook-operator.operator]
+}
 
 resource "kubernetes_manifest" "vault" {
   for_each = { for k, v in provider::kubernetes::manifest_decode_multi(file("${path.module}/infra/vault/install.yaml")) : k => v }
@@ -49,6 +37,13 @@ resource "kubernetes_manifest" "windows2022-vm" {
   manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/win2022-vm.yml"))
 }
 
+module "nfd-namespace" {
+   source = "./apps/infra/nvidia/nfd-namespace.tf"
+}
+
+module "nfd-operator" {
+   source = "./apps/infra/nvidia/nfd-module"
+}
 module "ai-workspace-mike" {
    source = "./apps/ai"
 }
