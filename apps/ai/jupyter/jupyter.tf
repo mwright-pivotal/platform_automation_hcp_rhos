@@ -1,12 +1,12 @@
-resource "kubernetes_manifest" "service_ultralytics_notebook" {
+resource "kubernetes_manifest" "service_jupyter_notebook" {
   manifest = {
     "apiVersion" = "v1"
     "kind" = "Service"
     "metadata" = {
       "labels" = {
-        "app" = "ultralytics-notebook"
+        "app" = "jupyter-notebook"
       }
-      "name" = "ultralytics-notebook"
+      "name" = "jupyter-notebook"
       "namespace" = "default"
     }
     "spec" = {
@@ -19,29 +19,29 @@ resource "kubernetes_manifest" "service_ultralytics_notebook" {
         },
       ]
       "selector" = {
-        "app" = "ultralytics"
+        "app" = "jupyter"
       }
       "type" = "NodePort"
     }
   }
 }
 
-resource "kubernetes_manifest" "pod_ultralyticsa" {
+resource "kubernetes_manifest" "pod_jupyter" {
   manifest = {
     "apiVersion" = "v1"
     "kind" = "Pod"
     "metadata" = {
       "labels" = {
-        "app" = "ultralytics"
+        "app" = "jupyter"
       }
-      "name" = "ultralyticsa"
+      "name" = "jupyter"
       "namespace" = "default"
     }
     "spec" = {
       "containers" = [
         {
           "image" = "quay.io/jupyter/tensorflow-notebook:cuda-latest"
-          "name" = "ultralytics"
+          "name" = "jupyter"
           "ports" = [
             {
               "containerPort" = 8888
