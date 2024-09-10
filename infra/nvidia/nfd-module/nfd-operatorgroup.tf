@@ -61,9 +61,9 @@ resource "kubernetes_manifest" "nodefeaturediscovery_openshift_nfd_nfd_instance"
     "spec" = {
       "customConfig" = {
         "configData" = "<<-EOT
-        - name: \\"more.kernel.features\\"
+        - name: \"more.kernel.features\"
           matchOn:
-          - loadedKMod: [\\"example_kmod3\\"]
+          - loadedKMod: [\"example_kmod3\"]
         
         EOT"
       }
