@@ -38,11 +38,11 @@ resource "kubernetes_manifest" "windows2022-vm" {
 }
 
 module "nfd-namespace" {
-   source = "./apps/infra/nvidia/nfd-namespace.tf"
+   source = "./infra/nvidia/nfd-namespace.tf"
 }
 
 module "nfd-operator" {
-   source = "./apps/infra/nvidia/nfd-module"
+   source = "./infra/nvidia/nfd-module"
 }
 module "ai-workspace-mike" {
    source = "./apps/ai"
