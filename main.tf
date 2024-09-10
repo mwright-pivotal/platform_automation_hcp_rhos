@@ -40,7 +40,7 @@ resource "kubernetes_manifest" "windows2022-vm" {
 module "nfd-operator" {
    source = "./infra/nvidia/nfd-module"
 }
-module "nfd-operator" {
+module "gpu-operator" {
    source = "./infra/nvidia/gpu-operator-module"
 }
 module "ai-workspace-mike" {
