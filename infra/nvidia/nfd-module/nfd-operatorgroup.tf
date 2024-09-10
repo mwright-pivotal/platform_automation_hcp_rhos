@@ -60,19 +60,19 @@ resource "kubernetes_manifest" "nodefeaturediscovery_openshift_nfd_nfd_instance"
     }
     "spec" = {
       "customConfig" = {
-        "configData" = <<-EOT
-        - name: "more.kernel.features"
+        "configData" = "<<-EOT
+        - name: \\"more.kernel.features\\"
           matchOn:
-          - loadedKMod: ["example_kmod3"]
+          - loadedKMod: [\\"example_kmod3\\"]
         
-        EOT
+        EOT"
       }
       "instance" = ""
       "operand" = {
         "image" = "registry.redhat.io/openshift4/ose-node-feature-discovery-rhel9:v4.16.0"
         "imagePullPolicy" = "Always"
       }
-      "topologyupdater" = false
+      "topologyupdater" = "false"
       "workerConfig" = {
         "configData" = <<-EOT
         core:
