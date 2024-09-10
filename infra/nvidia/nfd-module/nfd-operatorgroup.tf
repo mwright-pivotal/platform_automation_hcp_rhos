@@ -62,5 +62,5 @@ resource "kubernetes_manifest" "subscription_openshift_nfd_nfd" {
 }
 
 output "nfd_instance_output" {
-  value = provider::kubernetes::manifest_decode(file("nodefeature-instance.yaml"))
+  value = provider::kubernetes::manifest_decode(file("infra/nvidia/nfd-module/nodefeature-instance.yaml"))
 }
