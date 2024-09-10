@@ -1,7 +1,13 @@
-provider "kubernetes" {
-  host                   = "https://kubernetes.default.svc"
-  token = file("/var/run/secrets/kubernetes.io/serviceaccount/token")
-  cluster_ca_certificate = file("/var/run/secrets/kubernetes.io/serviceaccount/ca.crt")
+terraform {
+  required_providers {
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+      # Setting the provider version is a strongly recommended practice
+      # version = "..."
+    }
+  }
+  # Provider functions require Terraform 1.8 and later.
+  required_version = ">= 1.8.0"
 }
 
 resource "kubernetes_manifest" "namespace_openshift_nfd" {
