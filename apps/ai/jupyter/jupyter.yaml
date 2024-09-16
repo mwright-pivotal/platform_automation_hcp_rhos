@@ -29,7 +29,8 @@ spec:
   containers:
   - name: jupyter
     #image: tensorflow/tensorflow:latest-gpu-jupyter
-    image: quay.io/jupyter/tensorflow-notebook:cuda-latest
+    image: mwrightpivotal/jupyter-pytorch:cuda12
+    imagePullPolicy: Always
     resources:
       limits:
         nvidia.com/gpu: 1 

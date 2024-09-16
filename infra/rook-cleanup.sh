@@ -13,7 +13,7 @@ ssh $HOST2 "sudo rm -r -f  /var/lib/rook/*"
 ssh $HOST1 "sudo rm -r -f  /var/lib/rook/*"
 
 #danger!  make sure you wipe the correct disks
-ssh $HOST3 "sudo wipefs -a /dev/sda"
+ssh $HOST3 "sudo wipefs -a /dev/sdb"
 ssh $HOST2 "sudo wipefs -a /dev/sdc"
 ssh $HOST1 "sudo wipefs -a /dev/sdb"
 
