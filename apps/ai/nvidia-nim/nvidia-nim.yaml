@@ -1,0 +1,41 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: llama3-8b-instruct-nim
+  namespace: default
+  labels:
+    app: llama3-8b-instruct
+spec:
+  type: NodePort
+  ports:
+  - port: 8000
+    name: http
+    targetPort: 8000
+    nodePort: 30008
+  selector:
+    app: llama3-8b-instruct
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: llama3-8b-instruct-nim
+  namespace: default
+  labels:
+    app: llama3-8b-instruct
+spec:
+  securityContext:
+    fsGroup: 0
+  containers:
+  - name: llama3-8b-instruct-nim
+    #image: tensorflow/tensorflow:latest-gpu-jupyter
+    image: nvcr.io/nim/mistralai/mistral-7b-instruct-v03:latest
+    env:
+    - name: NGC_API_KEY
+      value: "N2MycjUzNTdzbGtpaTl0azBsZHVnMDg1N2o6Y2ExNmY0MDUtYzY0NC00NWNkLTkxOWEtMjA2ZWI0ZGMzMGJl"
+    resources:
+      limits:
+        nvidia.com/gpu: 1
+    ports:
+    - containerPort: 8000
+      name: nim

@@ -21,6 +21,11 @@ kind: Pod
 metadata:
   name: jupyter
   namespace: default
+  annotations:
+    vault.hashicorp.com/agent-inject: 'true'
+    vault.hashicorp.com/role: 'jupyter'
+    vault.hashicorp.com/agent-inject-secret-api-keys.env: 'secret/data/jupyter/config'
+    vault.hashicorp.com/tls-skip-verify: "true"
   labels:
     app: jupyter
 spec:

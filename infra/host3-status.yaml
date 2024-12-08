@@ -1,0 +1,38 @@
+apiVersion: lvm.topolvm.io/v1alpha1
+kind: LVMVolumeGroupNodeStatus
+metadata:
+  creationTimestamp: "2024-08-05T13:51:33Z"
+  generation: 6231686
+  name: host3
+  namespace: openshift-storage
+  ownerReferences:
+  - apiVersion: lvm.topolvm.io/v1alpha1
+    kind: LVMVolumeGroup
+    name: vg1
+    uid: 8ba3bde8-ec52-4a58-a830-fe0eb4513aeb
+  resourceVersion: "63828656"
+  uid: 00b62936-21f7-4c20-8b08-969124f92cbc
+spec:
+  nodeStatus:
+  - deviceDiscoveryPolicy: RuntimeDynamic
+    devices:
+    - /dev/sda
+    excluded:
+    - name: /dev/sdb
+      reasons:
+      - /dev/sdb has children block devices and could not be considered
+    - name: /dev/sdb1
+      reasons:
+      - /dev/sdb1 has an invalid partition label "BIOS-BOOT"
+    - name: /dev/sdb2
+      reasons:
+      - /dev/sdb2 has an invalid filesystem signature (vfat) and cannot be used
+    - name: /dev/sdb3
+      reasons:
+      - /dev/sdb3 has an invalid filesystem signature (ext4) and cannot be used
+      - /dev/sdb3 has an invalid partition label "boot"
+    - name: /dev/sdb4
+      reasons:
+      - /dev/sdb4 has an invalid filesystem signature (xfs) and cannot be used
+    name: vg1
+    status: Ready

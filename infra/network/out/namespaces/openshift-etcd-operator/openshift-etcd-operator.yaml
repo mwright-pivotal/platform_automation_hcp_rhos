@@ -1,0 +1,80 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    include.release.openshift.io/self-managed-high-availability: "true"
+    include.release.openshift.io/single-node-developer: "true"
+    openshift.io/node-selector: ""
+    openshift.io/sa.scc.mcs: s0:c16,c15
+    openshift.io/sa.scc.supplemental-groups: 1000270000/10000
+    openshift.io/sa.scc.uid-range: 1000270000/10000
+    workload.openshift.io/allowed: management
+  creationTimestamp: "2024-08-04T23:54:45Z"
+  labels:
+    kubernetes.io/metadata.name: openshift-etcd-operator
+    olm.operatorgroup.uid/5c17cb8f-0a47-468a-9b0c-d61072230a05: ""
+    openshift.io/cluster-monitoring: "true"
+    openshift.io/run-level: "0"
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/warn: restricted
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:openshift.io/sa.scc.mcs: {}
+          f:openshift.io/sa.scc.supplemental-groups: {}
+          f:openshift.io/sa.scc.uid-range: {}
+    manager: cluster-policy-controller
+    operation: Update
+    time: "2024-08-04T23:54:45Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:include.release.openshift.io/self-managed-high-availability: {}
+          f:include.release.openshift.io/single-node-developer: {}
+          f:openshift.io/node-selector: {}
+          f:workload.openshift.io/allowed: {}
+        f:labels:
+          .: {}
+          f:kubernetes.io/metadata.name: {}
+          f:openshift.io/cluster-monitoring: {}
+          f:openshift.io/run-level: {}
+          f:pod-security.kubernetes.io/audit: {}
+          f:pod-security.kubernetes.io/enforce: {}
+          f:pod-security.kubernetes.io/warn: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"d54a9571-581d-40c9-9074-5da5c8c1b816"}: {}
+    manager: cluster-version-operator
+    operation: Update
+    time: "2024-08-04T23:54:45Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          f:olm.operatorgroup.uid/5c17cb8f-0a47-468a-9b0c-d61072230a05: {}
+    manager: olm
+    operation: Update
+    time: "2024-08-05T00:36:42Z"
+  name: openshift-etcd-operator
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    controller: true
+    kind: ClusterVersion
+    name: version
+    uid: d54a9571-581d-40c9-9074-5da5c8c1b816
+  resourceVersion: "19578"
+  uid: e8b4570b-f27c-4fdf-a4bc-36bd8cb3e303
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

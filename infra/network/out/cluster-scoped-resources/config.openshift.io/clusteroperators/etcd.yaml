@@ -1,0 +1,115 @@
+---
+apiVersion: config.openshift.io/v1
+kind: ClusterOperator
+metadata:
+  annotations:
+    exclude.release.openshift.io/internal-openshift-hosted: "true"
+    include.release.openshift.io/self-managed-high-availability: "true"
+    include.release.openshift.io/single-node-developer: "true"
+  creationTimestamp: "2024-08-04T23:54:44Z"
+  generation: 1
+  managedFields:
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:exclude.release.openshift.io/internal-openshift-hosted: {}
+          f:include.release.openshift.io/self-managed-high-availability: {}
+          f:include.release.openshift.io/single-node-developer: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"d54a9571-581d-40c9-9074-5da5c8c1b816"}: {}
+      f:spec: {}
+    manager: cluster-version-operator
+    operation: Update
+    time: "2024-08-04T23:54:44Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:extension: {}
+        f:relatedObjects: {}
+    manager: cluster-version-operator
+    operation: Update
+    subresource: status
+    time: "2024-08-04T23:54:44Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions: {}
+        f:versions: {}
+    manager: cluster-etcd-operator
+    operation: Update
+    subresource: status
+    time: "2024-08-23T17:28:18Z"
+  name: etcd
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    controller: true
+    kind: ClusterVersion
+    name: version
+    uid: d54a9571-581d-40c9-9074-5da5c8c1b816
+  resourceVersion: "42195565"
+  uid: 90065c90-df22-496d-a1af-3726bc5cd460
+spec: {}
+status:
+  conditions:
+  - lastTransitionTime: "2024-08-21T21:04:56Z"
+    message: |-
+      EtcdCertSignerControllerDegraded: error on ensuring signer bundle for new pair: rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.0.249:60966->192.168.0.51:2379: read: connection timed out
+      EtcdEndpointsDegraded: EtcdEndpointsController can't evaluate whether quorum is safe: etcd cluster has quorum of 2 which is not fault tolerant: [{Member:ID:3539541916349730625 name:"host3" peerURLs:"https://192.168.0.251:2380" clientURLs:"https://192.168.0.251:2379"  Healthy:true Took:1.593322ms Error:<nil>} {Member:ID:5147721703428019806 name:"host1" peerURLs:"https://192.168.0.249:2380" clientURLs:"https://192.168.0.249:2379"  Healthy:true Took:2.921019ms Error:<nil>}]
+      TargetConfigControllerDegraded: "configmap/etcd-pod": rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.0.249:60966->192.168.0.51:2379: read: connection timed out
+    reason: EtcdCertSignerController_Error::EtcdEndpoints_ErrorUpdatingEtcdEndpoints::TargetConfigController_SynchronizationError
+    status: "True"
+    type: Degraded
+  - lastTransitionTime: "2024-08-05T13:55:58Z"
+    message: |-
+      NodeInstallerProgressing: 3 nodes are at revision 9
+      EtcdMembersProgressing: No unstarted etcd members found
+    reason: AsExpected
+    status: "False"
+    type: Progressing
+  - lastTransitionTime: "2024-08-05T00:29:49Z"
+    message: |-
+      StaticPodsAvailable: 3 nodes are active; 3 nodes are at revision 9
+      EtcdMembersAvailable: 2 members are available
+    reason: AsExpected
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2024-08-05T00:23:34Z"
+    message: All is well
+    reason: AsExpected
+    status: "True"
+    type: Upgradeable
+  - lastTransitionTime: "2024-08-05T00:23:34Z"
+    reason: NoData
+    status: Unknown
+    type: EvaluationConditionsDetected
+  extension: null
+  relatedObjects:
+  - group: operator.openshift.io
+    name: cluster
+    resource: etcds
+  - group: ""
+    name: openshift-config
+    resource: namespaces
+  - group: ""
+    name: openshift-config-managed
+    resource: namespaces
+  - group: ""
+    name: openshift-etcd-operator
+    resource: namespaces
+  - group: ""
+    name: openshift-etcd
+    resource: namespaces
+  versions:
+  - name: raw-internal
+    version: 4.16.4
+  - name: operator
+    version: 4.16.4
+  - name: etcd
+    version: 4.16.4

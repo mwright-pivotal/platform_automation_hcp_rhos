@@ -1,0 +1,7 @@
+---
+apiVersion: export.kubevirt.io/v1alpha1
+items: []
+kind: VirtualMachineExportList
+metadata:
+  continue: ""
+  resourceVersion: "42198089"

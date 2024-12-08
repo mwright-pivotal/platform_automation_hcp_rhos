@@ -1,0 +1,41 @@
+---
+apiVersion: config.openshift.io/v1
+items:
+- apiVersion: config.openshift.io/v1
+  kind: Scheduler
+  metadata:
+    creationTimestamp: "2024-08-04T23:54:19Z"
+    generation: 1
+    managedFields:
+    - apiVersion: config.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          .: {}
+          f:mastersSchedulable: {}
+          f:policy:
+            .: {}
+            f:name: {}
+      manager: cluster-bootstrap
+      operation: Update
+      time: "2024-08-04T23:54:19Z"
+    - apiVersion: config.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status: {}
+      manager: cluster-bootstrap
+      operation: Update
+      subresource: status
+      time: "2024-08-04T23:54:19Z"
+    name: cluster
+    resourceVersion: "588"
+    uid: deba38d4-eac1-4e29-9720-beceff7dbd39
+  spec:
+    mastersSchedulable: true
+    policy:
+      name: ""
+  status: {}
+kind: SchedulerList
+metadata:
+  continue: ""
+  resourceVersion: "42198067"

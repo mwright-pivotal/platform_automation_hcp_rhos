@@ -11,4 +11,4 @@ spec:
         storage: 60Gi
   source:
     http:
-      url: "http://192.168.0.5/Win2022_20324.qcow2"
+      url: "http://192.168.0.5/packer-win2022"

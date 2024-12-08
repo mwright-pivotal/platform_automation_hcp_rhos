@@ -1,0 +1,97 @@
+---
+apiVersion: discovery.k8s.io/v1
+items:
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 192.168.0.249
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: host1
+    targetRef:
+      kind: Pod
+      name: etcd-host1
+      namespace: openshift-etcd
+      uid: 44f2ef74-703a-44bb-b08b-a5481d281abd
+  - addresses:
+    - 192.168.0.251
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: host3
+    targetRef:
+      kind: Pod
+      name: etcd-host3
+      namespace: openshift-etcd
+      uid: d61190af-5457-4902-90e0-8e3fb7a69927
+  - addresses:
+    - 192.168.0.250
+    conditions:
+      ready: false
+      serving: false
+      terminating: false
+    nodeName: host2
+    targetRef:
+      kind: Pod
+      name: etcd-host2
+      namespace: openshift-etcd
+      uid: 1989232a-9cec-420d-a1c1-09cf8815cab1
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2024-08-23T15:18:19Z"
+    creationTimestamp: "2024-08-04T23:54:32Z"
+    generateName: etcd-
+    generation: 1384
+    labels:
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      k8s-app: etcd
+      kubernetes.io/service-name: etcd
+    managedFields:
+    - apiVersion: discovery.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:addressType: {}
+        f:endpoints: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:endpoints.kubernetes.io/last-change-trigger-time: {}
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:endpointslice.kubernetes.io/managed-by: {}
+            f:k8s-app: {}
+            f:kubernetes.io/service-name: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"6bc6d60a-9b80-4e6e-96fc-8b3d6fad708a"}: {}
+        f:ports: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2024-08-23T15:18:55Z"
+    name: etcd-pt77n
+    namespace: openshift-etcd
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: etcd
+      uid: 6bc6d60a-9b80-4e6e-96fc-8b3d6fad708a
+    resourceVersion: "41891396"
+    uid: e1ea03ed-f81a-4c63-8b72-0fa0acb35c55
+  ports:
+  - name: etcd
+    port: 2379
+    protocol: TCP
+  - name: etcd-metrics
+    port: 9979
+    protocol: TCP
+kind: EndpointSliceList
+metadata:
+  resourceVersion: "42198336"

@@ -1,0 +1,226 @@
+apiVersion: ceph.rook.io/v1
+kind: CephCluster
+metadata:
+  creationTimestamp: "2024-10-22T02:59:19Z"
+  finalizers:
+  - cephcluster.ceph.rook.io
+  generation: 1
+  labels:
+    app: ocs-storagecluster
+  name: ocs-storagecluster-cephcluster
+  namespace: openshift-storage
+  ownerReferences:
+  - apiVersion: ocs.openshift.io/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: StorageCluster
+    name: ocs-storagecluster
+    uid: ea1bda44-7b1b-4265-a1e9-b84808ff838b
+  resourceVersion: "458738"
+  uid: e0d29493-616f-4e29-b6d3-f6e44bac687e
+spec:
+  cephVersion:
+    image: registry.redhat.io/rhceph/rhceph-7-rhel9@sha256:75bd8969ab3f86f2203a1ceb187876f44e54c9ee3b917518c4d696cf6cd88ce3
+  cleanupPolicy:
+    sanitizeDisks: {}
+  continueUpgradeAfterChecksEvenIfNotHealthy: true
+  crashCollector: {}
+  csi:
+    cephfs:
+      kernelMountOptions: ms_mode=prefer-crc
+    readAffinity:
+      enabled: true
+  dashboard: {}
+  dataDirHostPath: /var/lib/rook
+  disruptionManagement:
+    machineDisruptionBudgetNamespace: openshift-machine-api
+    managePodBudgets: true
+  external: {}
+  healthCheck:
+    daemonHealth:
+      mon: {}
+      osd: {}
+      status: {}
+  labels:
+    exporter:
+      rook.io/managedBy: ocs-storagecluster
+    mgr:
+      odf-resource-profile: ""
+    mon:
+      odf-resource-profile: ""
+    monitoring:
+      rook.io/managedBy: ocs-storagecluster
+    osd:
+      odf-resource-profile: ""
+  logCollector:
+    enabled: true
+    maxLogSize: 500Mi
+    periodicity: daily
+  mgr:
+    count: 2
+    modules:
+    - enabled: true
+      name: pg_autoscaler
+    - enabled: true
+      name: balancer
+  mon:
+    count: 3
+  monitoring:
+    enabled: true
+    interval: 30s
+  network:
+    connections:
+      requireMsgr2: true
+    multiClusterService: {}
+  placement:
+    all:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: node-role.kubernetes.io/worker
+              operator: In
+              values:
+              - ""
+      tolerations:
+      - effect: NoSchedule
+        key: node.ocs.openshift.io/storage
+        operator: Equal
+        value: "true"
+    arbiter:
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Exists
+    mon:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: node-role.kubernetes.io/worker
+              operator: In
+              values:
+              - ""
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: app
+              operator: In
+              values:
+              - rook-ceph-mon
+          topologyKey: kubernetes.io/hostname
+  priorityClassNames:
+    mgr: system-node-critical
+    mon: system-node-critical
+    osd: system-node-critical
+  resources:
+    mds:
+      limits:
+        cpu: "3"
+        memory: 8Gi
+      requests:
+        cpu: "1"
+        memory: 8Gi
+    mgr:
+      limits:
+        cpu: "2"
+        memory: 3Gi
+      requests:
+        cpu: "1"
+        memory: 1536Mi
+    mon:
+      limits:
+        cpu: "1"
+        memory: 2Gi
+      requests:
+        cpu: "1"
+        memory: 2Gi
+    rgw:
+      limits:
+        cpu: "2"
+        memory: 4Gi
+      requests:
+        cpu: "1"
+        memory: 4Gi
+  security:
+    keyRotation:
+      enabled: false
+      schedule: '@weekly'
+    kms: {}
+  storage:
+    flappingRestartIntervalHours: 24
+    storageClassDeviceSets:
+    - count: 4
+      name: ocs-deviceset-0
+      placement:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node-role.kubernetes.io/worker
+                operator: Exists
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - rook-ceph-osd
+              topologyKey: kubernetes.io/hostname
+            weight: 100
+      preparePlacement:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node-role.kubernetes.io/worker
+                operator: Exists
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - rook-ceph-osd-prepare
+              topologyKey: kubernetes.io/hostname
+            weight: 100
+      resources:
+        limits:
+          cpu: "2"
+          memory: 5Gi
+        requests:
+          cpu: "1"
+          memory: 5Gi
+      tuneFastDeviceClass: true
+      volumeClaimTemplates:
+      - metadata:
+          annotations:
+            crushDeviceClass: ssd
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: "1"
+          storageClassName: localblock-sc
+          volumeMode: Block
+    store: {}
+status:
+  conditions:
+  - lastHeartbeatTime: "2024-10-22T12:36:29Z"
+    lastTransitionTime: "2024-10-22T12:36:29Z"
+    message: Processing OSD 1 on PVC "ocs-deviceset-0-data-1hst8r"
+    reason: ClusterProgressing
+    status: "True"
+    type: Progressing
+  message: Processing OSD 1 on PVC "ocs-deviceset-0-data-1hst8r"
+  phase: Progressing
+  state: Creating
+  version:
+    image: registry.redhat.io/rhceph/rhceph-7-rhel9@sha256:75bd8969ab3f86f2203a1ceb187876f44e54c9ee3b917518c4d696cf6cd88ce3
+    version: 18.2.1-229

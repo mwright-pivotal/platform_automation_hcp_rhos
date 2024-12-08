@@ -1,0 +1,7 @@
+global:
+  externalVaultAddr: "https://192.168.0.5:8200" 
+  tlsDisable: false 
+injector:
+  extraEnvironmentVars:
+    VAULT_SKIP_TLS: true 
+    VAULT_TLS_SKIP_VERIFY: true

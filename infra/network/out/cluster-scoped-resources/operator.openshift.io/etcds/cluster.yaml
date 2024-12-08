@@ -1,0 +1,471 @@
+---
+apiVersion: operator.openshift.io/v1
+kind: Etcd
+metadata:
+  annotations:
+    include.release.openshift.io/self-managed-high-availability: "true"
+    include.release.openshift.io/single-node-developer: "true"
+    release.openshift.io/create-only: "true"
+  creationTimestamp: "2024-08-04T23:54:48Z"
+  generation: 2
+  managedFields:
+  - apiVersion: operator.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:include.release.openshift.io/self-managed-high-availability: {}
+          f:include.release.openshift.io/single-node-developer: {}
+          f:release.openshift.io/create-only: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"d54a9571-581d-40c9-9074-5da5c8c1b816"}: {}
+      f:spec:
+        .: {}
+        f:logLevel: {}
+        f:managementState: {}
+        f:operatorLogLevel: {}
+    manager: cluster-version-operator
+    operation: Update
+    time: "2024-08-04T23:54:48Z"
+  - apiVersion: operator.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:observedConfig:
+          .: {}
+          f:controlPlane:
+            .: {}
+            f:replicas: {}
+          f:servingInfo:
+            .: {}
+            f:cipherSuites: {}
+            f:minTLSVersion: {}
+        f:unsupportedConfigOverrides: {}
+    manager: cluster-etcd-operator
+    operation: Update
+    time: "2024-08-05T00:24:10Z"
+  - apiVersion: operator.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:conditions:
+          .: {}
+          k:{"type":"BackingResourceControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"BootstrapTeardownDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"ClusterMemberControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"ClusterMemberRemovalControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"ConfigObservationDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"DefragControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"DefragControllerDisabled"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"EnvVarControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"EtcdBootstrapMemberRemoved"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"EtcdCertSignerControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"EtcdEndpointsDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"EtcdMembersAvailable"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"EtcdMembersControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"EtcdMembersDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"EtcdMembersProgressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"EtcdRunningInCluster"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"EtcdStaticResourcesDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"FSyncControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"GuardControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"InstallerControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"InstallerPodContainerWaitingDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"InstallerPodNetworkingDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"InstallerPodPendingDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"MachineDeletionHooksControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"MissingStaticPodControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"NodeControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"NodeInstallerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"NodeInstallerProgressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"ResourceSyncControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"RevisionControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"ScriptControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"StaticPodsAvailable"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"StaticPodsDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"TargetConfigControllerDegraded"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"UnsupportedConfigOverridesUpgradeable"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:latestAvailableRevision: {}
+        f:nodeStatuses:
+          .: {}
+          k:{"nodeName":"host1"}:
+            .: {}
+            f:currentRevision: {}
+            f:nodeName: {}
+          k:{"nodeName":"host2"}:
+            .: {}
+            f:currentRevision: {}
+            f:nodeName: {}
+          k:{"nodeName":"host3"}:
+            .: {}
+            f:currentRevision: {}
+            f:nodeName: {}
+        f:readyReplicas: {}
+    manager: cluster-etcd-operator
+    operation: Update
+    subresource: status
+    time: "2024-08-23T17:28:18Z"
+  name: cluster
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    kind: ClusterVersion
+    name: version
+    uid: d54a9571-581d-40c9-9074-5da5c8c1b816
+  resourceVersion: "42195564"
+  uid: 3dc08e2c-7d39-4009-a3f9-8cee4d33b104
+spec:
+  logLevel: Normal
+  managementState: Managed
+  observedConfig:
+    controlPlane:
+      replicas: 3
+    servingInfo:
+      cipherSuites:
+      - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+      - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+      - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+      - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+      - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+      - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+      minTLSVersion: VersionTLS12
+  operatorLogLevel: Normal
+  unsupportedConfigOverrides: null
+status:
+  conditions:
+  - lastTransitionTime: "2024-08-22T00:08:32Z"
+    reason: MembersReported
+    status: "False"
+    type: EtcdMembersControllerDegraded
+  - lastTransitionTime: "2024-08-05T00:23:34Z"
+    reason: AsExpected
+    status: "False"
+    type: MachineDeletionHooksControllerDegraded
+  - lastTransitionTime: "2024-08-05T00:23:34Z"
+    reason: NoUnsupportedConfigOverrides
+    status: "True"
+    type: UnsupportedConfigOverridesUpgradeable
+  - lastTransitionTime: "2024-08-21T21:03:42Z"
+    reason: AsExpected
+    status: "False"
+    type: GuardControllerDegraded
+  - lastTransitionTime: "2024-08-22T00:08:18Z"
+    reason: AsExpected
+    status: "False"
+    type: ScriptControllerDegraded
+  - lastTransitionTime: "2024-08-23T15:03:41Z"
+    status: "False"
+    type: StaticPodsDegraded
+  - lastTransitionTime: "2024-08-05T00:23:41Z"
+    reason: AsExpected
+    status: "False"
+    type: DefragControllerDisabled
+  - lastTransitionTime: "2024-08-21T21:26:47Z"
+    reason: AsExpected
+    status: "False"
+    type: EnvVarControllerDegraded
+  - lastTransitionTime: "2024-08-21T21:03:42Z"
+    message: 'EtcdEndpointsController can''t evaluate whether quorum is safe: etcd
+      cluster has quorum of 2 which is not fault tolerant: [{Member:ID:3539541916349730625
+      name:"host3" peerURLs:"https://192.168.0.251:2380" clientURLs:"https://192.168.0.251:2379"  Healthy:true
+      Took:1.593322ms Error:<nil>} {Member:ID:5147721703428019806 name:"host1" peerURLs:"https://192.168.0.249:2380"
+      clientURLs:"https://192.168.0.249:2379"  Healthy:true Took:2.921019ms Error:<nil>}]'
+    reason: ErrorUpdatingEtcdEndpoints
+    status: "True"
+    type: EtcdEndpointsDegraded
+  - lastTransitionTime: "2024-08-21T21:03:36Z"
+    reason: AsExpected
+    status: "False"
+    type: EtcdStaticResourcesDegraded
+  - lastTransitionTime: "2024-08-21T21:02:55Z"
+    message: 'error on ensuring signer bundle for new pair: rpc error: code = Unavailable
+      desc = error reading from server: read tcp 192.168.0.249:60966->192.168.0.51:2379:
+      read: connection timed out'
+    reason: Error
+    status: "True"
+    type: EtcdCertSignerControllerDegraded
+  - lastTransitionTime: "2024-08-21T21:03:35Z"
+    reason: AsExpected
+    status: "False"
+    type: BackingResourceControllerDegraded
+  - lastTransitionTime: "2024-08-21T21:03:01Z"
+    status: "False"
+    type: InstallerControllerDegraded
+  - lastTransitionTime: "2024-08-05T00:29:49Z"
+    message: 3 nodes are active; 3 nodes are at revision 9
+    status: "True"
+    type: StaticPodsAvailable
+  - lastTransitionTime: "2024-08-05T13:55:58Z"
+    message: 3 nodes are at revision 9
+    reason: AllNodesAtLatestRevision
+    status: "False"
+    type: NodeInstallerProgressing
+  - lastTransitionTime: "2024-08-05T00:23:59Z"
+    status: "False"
+    type: NodeInstallerDegraded
+  - lastTransitionTime: "2024-08-05T00:24:02Z"
+    reason: AsExpected
+    status: "False"
+    type: MissingStaticPodControllerDegraded
+  - lastTransitionTime: "2024-08-05T00:24:03Z"
+    reason: AsExpected
+    status: "False"
+    type: ClusterMemberRemovalControllerDegraded
+  - lastTransitionTime: "2024-08-05T00:24:22Z"
+    status: "False"
+    type: RevisionControllerDegraded
+  - lastTransitionTime: "2024-08-05T00:24:08Z"
+    status: "False"
+    type: ResourceSyncControllerDegraded
+  - lastTransitionTime: "2024-08-05T00:24:10Z"
+    status: "False"
+    type: InstallerPodPendingDegraded
+  - lastTransitionTime: "2024-08-05T00:24:10Z"
+    status: "False"
+    type: InstallerPodContainerWaitingDegraded
+  - lastTransitionTime: "2024-08-05T00:24:10Z"
+    status: "False"
+    type: InstallerPodNetworkingDegraded
+  - lastTransitionTime: "2024-08-05T00:24:11Z"
+    status: "False"
+    type: ConfigObservationDegraded
+  - lastTransitionTime: "2024-08-23T15:35:44Z"
+    message: All master nodes are ready
+    reason: MasterNodesReady
+    status: "False"
+    type: NodeControllerDegraded
+  - lastTransitionTime: "2024-08-05T00:45:40Z"
+    reason: AsExpected
+    status: "False"
+    type: ClusterMemberControllerDegraded
+  - lastTransitionTime: "2024-08-21T21:02:55Z"
+    message: '"configmap/etcd-pod": rpc error: code = Unavailable desc = error reading
+      from server: read tcp 192.168.0.249:60966->192.168.0.51:2379: read: connection
+      timed out'
+    reason: SynchronizationError
+    status: "True"
+    type: TargetConfigControllerDegraded
+  - lastTransitionTime: "2024-08-05T00:47:38Z"
+    message: etcd-bootstrap member is already removed
+    reason: BootstrapAlreadyRemoved
+    status: "True"
+    type: EtcdRunningInCluster
+  - lastTransitionTime: "2024-08-05T00:25:01Z"
+    reason: AsExpected
+    status: "False"
+    type: BootstrapTeardownDegraded
+  - lastTransitionTime: "2024-08-05T00:25:04Z"
+    reason: AsExpected
+    status: "False"
+    type: DefragControllerDegraded
+  - lastTransitionTime: "2024-08-23T15:20:18Z"
+    message: No unhealthy members found
+    reason: AsExpected
+    status: "False"
+    type: EtcdMembersDegraded
+  - lastTransitionTime: "2024-08-05T00:25:05Z"
+    message: No unstarted etcd members found
+    reason: AsExpected
+    status: "False"
+    type: EtcdMembersProgressing
+  - lastTransitionTime: "2024-08-05T00:25:05Z"
+    message: 2 members are available
+    reason: EtcdQuorate
+    status: "True"
+    type: EtcdMembersAvailable
+  - lastTransitionTime: "2024-08-05T00:47:46Z"
+    message: etcd bootstrap member is removed
+    reason: BootstrapMemberRemoved
+    status: "True"
+    type: EtcdBootstrapMemberRemoved
+  - lastTransitionTime: "2024-08-05T00:54:08Z"
+    reason: AsExpected
+    status: "False"
+    type: FSyncControllerDegraded
+  latestAvailableRevision: 9
+  nodeStatuses:
+  - currentRevision: 9
+    nodeName: host1
+  - currentRevision: 9
+    nodeName: host2
+  - currentRevision: 9
+    nodeName: host3
+  readyReplicas: 0

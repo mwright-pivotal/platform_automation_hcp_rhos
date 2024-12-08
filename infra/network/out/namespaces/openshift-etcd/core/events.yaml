@@ -1,0 +1,1078 @@
+---
+apiVersion: v1
+items:
+- apiVersion: v1
+  count: 679
+  eventTime: null
+  firstTimestamp: "2024-08-21T21:18:46Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: etcd-guard-host1
+    namespace: openshift-etcd
+    resourceVersion: "38403452"
+    uid: 9e0608ed-872a-458d-9a5a-45c256f5f884
+  kind: Event
+  lastTimestamp: "2024-08-23T15:03:27Z"
+  message: Node is not ready
+  metadata:
+    creationTimestamp: "2024-08-22T20:25:59Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2024-08-23T15:03:27Z"
+    name: etcd-guard-host1.17eddb177edecd47
+    namespace: openshift-etcd
+    resourceVersion: "41855973"
+    uid: ad0be4da-3363-4538-8a46-6d44ddb8c71a
+  reason: NodeNotReady
+  reportingComponent: node-controller
+  reportingInstance: ""
+  source:
+    component: node-controller
+  type: Warning
+- apiVersion: v1
+  count: 27725
+  eventTime: null
+  firstTimestamp: "2024-08-21T21:02:35Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{guard}
+    kind: Pod
+    name: etcd-guard-host2
+    namespace: openshift-etcd
+    resourceVersion: "17609"
+    uid: 0975cec3-fa20-4662-bd27-8d3203a278b0
+  kind: Event
+  lastTimestamp: "2024-08-23T15:03:11Z"
+  message: "Readiness probe error: Get \"https://192.168.0.51:9980/readyz\": dial
+    tcp 192.168.0.51:9980: connect: no route to host\nbody: \n"
+  metadata:
+    creationTimestamp: "2024-08-21T21:03:07Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:03:11Z"
+    name: etcd-guard-host2.17edda3573cfdef9
+    namespace: openshift-etcd
+    resourceVersion: "41855017"
+    uid: c3d96b33-f442-4ecc-b999-d152449e6b6b
+  reason: ProbeError
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Warning
+- apiVersion: v1
+  count: 27299
+  eventTime: null
+  firstTimestamp: "2024-08-21T21:02:35Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{guard}
+    kind: Pod
+    name: etcd-guard-host2
+    namespace: openshift-etcd
+    resourceVersion: "17609"
+    uid: 0975cec3-fa20-4662-bd27-8d3203a278b0
+  kind: Event
+  lastTimestamp: "2024-08-23T14:27:55Z"
+  message: 'Readiness probe failed: Get "https://192.168.0.51:9980/readyz": dial tcp
+    192.168.0.51:9980: connect: no route to host'
+  metadata:
+    creationTimestamp: "2024-08-21T21:03:07Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T14:36:30Z"
+    name: etcd-guard-host2.17edda3573dafc9c
+    namespace: openshift-etcd
+    resourceVersion: "41785252"
+    uid: fa71037e-d477-47bc-9367-25f052e1d697
+  reason: Unhealthy
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Warning
+- apiVersion: v1
+  count: 3
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:18:54Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: etcd-guard-host2
+    namespace: openshift-etcd
+    resourceVersion: "35357710"
+    uid: 0975cec3-fa20-4662-bd27-8d3203a278b0
+  kind: Event
+  lastTimestamp: "2024-08-23T15:18:58Z"
+  message: 'network is not ready: container runtime network not ready: NetworkReady=false
+    reason:NetworkPluginNotReady message:Network plugin returns error: No CNI configuration
+    file in /etc/kubernetes/cni/net.d/. Has your network provider started?'
+  metadata:
+    creationTimestamp: "2024-08-23T15:18:54Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:18:58Z"
+    name: etcd-guard-host2.17ee649d480bab3c
+    namespace: openshift-etcd
+    resourceVersion: "41891744"
+    uid: c56a5f60-9ba7-44fa-86fe-91b30df0fce7
+  reason: NetworkNotReady
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Warning
+- apiVersion: v1
+  count: 4
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:18:54Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: etcd-guard-host2
+    namespace: openshift-etcd
+    resourceVersion: "35357710"
+    uid: 0975cec3-fa20-4662-bd27-8d3203a278b0
+  kind: Event
+  lastTimestamp: "2024-08-23T15:18:57Z"
+  message: 'MountVolume.SetUp failed for volume "kube-api-access-5mq94" : [object
+    "openshift-etcd"/"kube-root-ca.crt" not registered, object "openshift-etcd"/"openshift-service-ca.crt"
+    not registered]'
+  metadata:
+    creationTimestamp: "2024-08-23T15:18:54Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:18:57Z"
+    name: etcd-guard-host2.17ee649d5050cb66
+    namespace: openshift-etcd
+    resourceVersion: "41891674"
+    uid: ebfbd62b-c373-4675-922a-59e8ca352950
+  reason: FailedMount
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Warning
+- apiVersion: v1
+  count: 15
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:19:07Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: etcd-guard-host2
+    namespace: openshift-etcd
+    resourceVersion: "41892287"
+    uid: 49160456-cd66-44b1-a0ba-01527188c194
+  kind: Event
+  lastTimestamp: "2024-08-23T15:19:33Z"
+  message: 'network is not ready: container runtime network not ready: NetworkReady=false
+    reason:NetworkPluginNotReady message:Network plugin returns error: No CNI configuration
+    file in /etc/kubernetes/cni/net.d/. Has your network provider started?'
+  metadata:
+    creationTimestamp: "2024-08-23T15:19:07Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:19:33Z"
+    name: etcd-guard-host2.17ee64a06f542f2b
+    namespace: openshift-etcd
+    resourceVersion: "41893713"
+    uid: 5ad5aeb7-6a26-403a-a2ca-ab0d4edbdda1
+  reason: NetworkNotReady
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Warning
+- apiVersion: v1
+  count: 6
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:19:07Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: etcd-guard-host2
+    namespace: openshift-etcd
+    resourceVersion: "41892287"
+    uid: 49160456-cd66-44b1-a0ba-01527188c194
+  kind: Event
+  lastTimestamp: "2024-08-23T15:19:23Z"
+  message: 'MountVolume.SetUp failed for volume "kube-api-access-skz49" : [object
+    "openshift-etcd"/"kube-root-ca.crt" not registered, object "openshift-etcd"/"openshift-service-ca.crt"
+    not registered]'
+  metadata:
+    creationTimestamp: "2024-08-23T15:19:07Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:19:23Z"
+    name: etcd-guard-host2.17ee64a07a88d308
+    namespace: openshift-etcd
+    resourceVersion: "41893239"
+    uid: 4f7c8f7f-7710-4cd6-931e-fd17751ca610
+  reason: FailedMount
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:19:39Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: etcd-guard-host2
+    namespace: openshift-etcd
+    resourceVersion: "41893429"
+    uid: 49160456-cd66-44b1-a0ba-01527188c194
+  kind: Event
+  lastTimestamp: "2024-08-23T15:19:39Z"
+  message: Add eth0 [10.129.0.8/23] from ovn-kubernetes
+  metadata:
+    creationTimestamp: "2024-08-23T15:19:39Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: multus-daemon
+      operation: Update
+      time: "2024-08-23T15:19:39Z"
+    name: etcd-guard-host2.17ee64a7ef49c1e0
+    namespace: openshift-etcd
+    resourceVersion: "41894274"
+    uid: 4d18266d-620f-4590-a73e-a87d3703365b
+  reason: AddedInterface
+  reportingComponent: multus
+  reportingInstance: ""
+  source:
+    component: multus
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:19:39Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{guard}
+    kind: Pod
+    name: etcd-guard-host2
+    namespace: openshift-etcd
+    resourceVersion: "41892287"
+    uid: 49160456-cd66-44b1-a0ba-01527188c194
+  kind: Event
+  lastTimestamp: "2024-08-23T15:19:39Z"
+  message: Container image "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f3e57334c06585ab1d45c46da3f7f911c8cf60cb082de43bf7c7d8917bcf07a2"
+    already present on machine
+  metadata:
+    creationTimestamp: "2024-08-23T15:19:39Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:19:39Z"
+    name: etcd-guard-host2.17ee64a7f2a3991c
+    namespace: openshift-etcd
+    resourceVersion: "41894280"
+    uid: 0c97f6bf-f401-4dfc-95f9-8a9676b16208
+  reason: Pulled
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:19:40Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{guard}
+    kind: Pod
+    name: etcd-guard-host2
+    namespace: openshift-etcd
+    resourceVersion: "41892287"
+    uid: 49160456-cd66-44b1-a0ba-01527188c194
+  kind: Event
+  lastTimestamp: "2024-08-23T15:19:40Z"
+  message: Created container guard
+  metadata:
+    creationTimestamp: "2024-08-23T15:19:40Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:19:40Z"
+    name: etcd-guard-host2.17ee64a814a4220e
+    namespace: openshift-etcd
+    resourceVersion: "41894311"
+    uid: c274b500-a45c-4bc1-b0d7-f173e134926b
+  reason: Created
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:19:40Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{guard}
+    kind: Pod
+    name: etcd-guard-host2
+    namespace: openshift-etcd
+    resourceVersion: "41892287"
+    uid: 49160456-cd66-44b1-a0ba-01527188c194
+  kind: Event
+  lastTimestamp: "2024-08-23T15:19:40Z"
+  message: Started container guard
+  metadata:
+    creationTimestamp: "2024-08-23T15:19:40Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:19:40Z"
+    name: etcd-guard-host2.17ee64a816fa50bb
+    namespace: openshift-etcd
+    resourceVersion: "41894314"
+    uid: 3ff28537-9212-4fb9-9bdf-f1b09b63bb3a
+  reason: Started
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Normal
+- apiVersion: v1
+  count: 1659
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:19:41Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{guard}
+    kind: Pod
+    name: etcd-guard-host2
+    namespace: openshift-etcd
+    resourceVersion: "41892287"
+    uid: 49160456-cd66-44b1-a0ba-01527188c194
+  kind: Event
+  lastTimestamp: "2024-08-23T17:29:09Z"
+  message: "Readiness probe error: Get \"https://192.168.0.250:9980/readyz\": dial
+    tcp 192.168.0.250:9980: connect: connection refused\nbody: \n"
+  metadata:
+    creationTimestamp: "2024-08-23T15:19:41Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T17:29:09Z"
+    name: etcd-guard-host2.17ee64a864bba4f8
+    namespace: openshift-etcd
+    resourceVersion: "42197557"
+    uid: d1b19033-33c7-4f55-837f-d0fe15ee39fc
+  reason: ProbeError
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Warning
+- apiVersion: v1
+  count: 672
+  eventTime: null
+  firstTimestamp: "2024-08-21T21:18:46Z"
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: etcd-host1
+    namespace: openshift-etcd
+    resourceVersion: "38403888"
+    uid: 44f2ef74-703a-44bb-b08b-a5481d281abd
+  kind: Event
+  lastTimestamp: "2024-08-23T15:03:27Z"
+  message: Node is not ready
+  metadata:
+    creationTimestamp: "2024-08-22T20:25:59Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2024-08-23T15:03:27Z"
+    name: etcd-host1.17eddb1785d7cf77
+    namespace: openshift-etcd
+    resourceVersion: "41856006"
+    uid: 53d63d3a-4623-45f4-9bc0-cefd1789ad53
+  reason: NodeNotReady
+  reportingComponent: node-controller
+  reportingInstance: ""
+  source:
+    component: node-controller
+  type: Warning
+- apiVersion: v1
+  count: 386
+  eventTime: null
+  firstTimestamp: "2024-08-21T21:03:25Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{etcd}
+    kind: Pod
+    name: etcd-host2
+    namespace: openshift-etcd
+    uid: 18b7ba361e42685806a2cbba3b695be0
+  kind: Event
+  lastTimestamp: "2024-08-23T14:27:55Z"
+  message: Container image "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c6db0d3f35294c42fa01bbd39abaf72da2153d84dcc57796dc4e6b1ca0c46fd8"
+    already present on machine
+  metadata:
+    creationTimestamp: "2024-08-23T14:36:30Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T14:36:30Z"
+    name: etcd-host2.17edda41365cd568
+    namespace: openshift-etcd
+    resourceVersion: "41785238"
+    uid: 89c053e1-a3cb-4ac2-bc88-c9ab30193f32
+  reason: Pulled
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Normal
+- apiVersion: v1
+  count: 4327
+  eventTime: null
+  firstTimestamp: "2024-08-21T21:03:40Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{etcd}
+    kind: Pod
+    name: etcd-host2
+    namespace: openshift-etcd
+    uid: 18b7ba361e42685806a2cbba3b695be0
+  kind: Event
+  lastTimestamp: "2024-08-23T14:56:30Z"
+  message: "Startup probe error: Get \"https://192.168.0.51:9980/readyz\": net/http:
+    request canceled while waiting for connection (Client.Timeout exceeded while awaiting
+    headers)\nbody: \n"
+  metadata:
+    creationTimestamp: "2024-08-21T21:12:40Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:02:29Z"
+    name: etcd-host2.17edda44931c6769
+    namespace: openshift-etcd
+    resourceVersion: "41853132"
+    uid: b488a2c8-1c2f-4637-a5d0-e2b70b004669
+  reason: ProbeError
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Warning
+- apiVersion: v1
+  count: 4873
+  eventTime: null
+  firstTimestamp: "2024-08-21T21:25:30Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{etcd}
+    kind: Pod
+    name: etcd-host2
+    namespace: openshift-etcd
+    uid: 18b7ba361e42685806a2cbba3b695be0
+  kind: Event
+  lastTimestamp: "2024-08-23T15:02:49Z"
+  message: Back-off restarting failed container etcd in pod etcd-host2_openshift-etcd(18b7ba361e42685806a2cbba3b695be0)
+  metadata:
+    creationTimestamp: "2024-08-21T21:27:48Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:02:49Z"
+    name: etcd-host2.17eddb758bb8522e
+    namespace: openshift-etcd
+    resourceVersion: "41854017"
+    uid: f7dcc79c-96be-4491-891d-1e276d330e3f
+  reason: BackOff
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Warning
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:18:20Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.initContainers{setup}
+    kind: Pod
+    name: etcd-host2
+    namespace: openshift-etcd
+    uid: 18b7ba361e42685806a2cbba3b695be0
+  kind: Event
+  lastTimestamp: "2024-08-23T15:18:20Z"
+  message: Container image "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c6db0d3f35294c42fa01bbd39abaf72da2153d84dcc57796dc4e6b1ca0c46fd8"
+    already present on machine
+  metadata:
+    creationTimestamp: "2024-08-23T15:18:48Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:18:48Z"
+    name: etcd-host2.17ee6495622c212e
+    namespace: openshift-etcd
+    resourceVersion: "41890834"
+    uid: b987c8b5-efe6-44b4-abfe-852ef6d391d3
+  reason: Pulled
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:18:23Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.initContainers{setup}
+    kind: Pod
+    name: etcd-host2
+    namespace: openshift-etcd
+    uid: 18b7ba361e42685806a2cbba3b695be0
+  kind: Event
+  lastTimestamp: "2024-08-23T15:18:23Z"
+  message: Created container setup
+  metadata:
+    creationTimestamp: "2024-08-23T15:18:48Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:18:48Z"
+    name: etcd-host2.17ee649634b1d725
+    namespace: openshift-etcd
+    resourceVersion: "41890851"
+    uid: c391a201-e78a-43aa-8373-b02543c2889e
+  reason: Created
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Normal
+- apiVersion: v1
+  count: 1
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:18:23Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.initContainers{setup}
+    kind: Pod
+    name: etcd-host2
+    namespace: openshift-etcd
+    uid: 18b7ba361e42685806a2cbba3b695be0
+  kind: Event
+  lastTimestamp: "2024-08-23T15:18:23Z"
+  message: Started container setup
+  metadata:
+    creationTimestamp: "2024-08-23T15:18:48Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:18:48Z"
+    name: etcd-host2.17ee6496375f55ad
+    namespace: openshift-etcd
+    resourceVersion: "41890861"
+    uid: 10212fb6-5dd8-4e91-80e5-792d484c5e75
+  reason: Started
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Normal
+- apiVersion: v1
+  count: 5
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:18:24Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.initContainers{etcd-ensure-env-vars}
+    kind: Pod
+    name: etcd-host2
+    namespace: openshift-etcd
+    uid: 18b7ba361e42685806a2cbba3b695be0
+  kind: Event
+  lastTimestamp: "2024-08-23T15:19:57Z"
+  message: Container image "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c6db0d3f35294c42fa01bbd39abaf72da2153d84dcc57796dc4e6b1ca0c46fd8"
+    already present on machine
+  metadata:
+    creationTimestamp: "2024-08-23T15:18:48Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:19:57Z"
+    name: etcd-host2.17ee6496556ecbe8
+    namespace: openshift-etcd
+    resourceVersion: "41895058"
+    uid: 058f48b7-88ec-46c2-be7e-7e74de978e4b
+  reason: Pulled
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Normal
+- apiVersion: v1
+  count: 5
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:18:24Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.initContainers{etcd-ensure-env-vars}
+    kind: Pod
+    name: etcd-host2
+    namespace: openshift-etcd
+    uid: 18b7ba361e42685806a2cbba3b695be0
+  kind: Event
+  lastTimestamp: "2024-08-23T15:19:57Z"
+  message: Created container etcd-ensure-env-vars
+  metadata:
+    creationTimestamp: "2024-08-23T15:18:48Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:19:57Z"
+    name: etcd-host2.17ee649677897efd
+    namespace: openshift-etcd
+    resourceVersion: "41895080"
+    uid: 87b91045-1c67-4073-ad3b-9d4261c088cb
+  reason: Created
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Normal
+- apiVersion: v1
+  count: 4
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:18:24Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.initContainers{etcd-ensure-env-vars}
+    kind: Pod
+    name: etcd-host2
+    namespace: openshift-etcd
+    uid: 18b7ba361e42685806a2cbba3b695be0
+  kind: Event
+  lastTimestamp: "2024-08-23T15:19:06Z"
+  message: Started container etcd-ensure-env-vars
+  metadata:
+    creationTimestamp: "2024-08-23T15:18:48Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T15:19:06Z"
+    name: etcd-host2.17ee64967df1a053
+    namespace: openshift-etcd
+    resourceVersion: "41892250"
+    uid: 1c633926-0a45-4216-8211-48e357e6ca93
+  reason: Started
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Normal
+- apiVersion: v1
+  count: 598
+  eventTime: null
+  firstTimestamp: "2024-08-23T15:18:26Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.initContainers{etcd-ensure-env-vars}
+    kind: Pod
+    name: etcd-host2
+    namespace: openshift-etcd
+    uid: 18b7ba361e42685806a2cbba3b695be0
+  kind: Event
+  lastTimestamp: "2024-08-23T17:28:54Z"
+  message: Back-off restarting failed container etcd-ensure-env-vars in pod etcd-host2_openshift-etcd(18b7ba361e42685806a2cbba3b695be0)
+  metadata:
+    creationTimestamp: "2024-08-23T15:18:49Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:reportingComponent: {}
+        f:reportingInstance: {}
+        f:source:
+          f:component: {}
+          f:host: {}
+        f:type: {}
+      manager: kubelet
+      operation: Update
+      time: "2024-08-23T17:28:54Z"
+    name: etcd-host2.17ee6496d46b8e16
+    namespace: openshift-etcd
+    resourceVersion: "42196968"
+    uid: 43df4c91-ce30-4084-b5d9-75c95fa6efe5
+  reason: BackOff
+  reportingComponent: kubelet
+  reportingInstance: host2
+  source:
+    component: kubelet
+    host: host2
+  type: Warning
+kind: EventList
+metadata:
+  resourceVersion: "42198334"

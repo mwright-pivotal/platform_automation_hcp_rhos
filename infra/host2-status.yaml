@@ -1,0 +1,67 @@
+apiVersion: lvm.topolvm.io/v1alpha1
+kind: LVMVolumeGroupNodeStatus
+metadata:
+  creationTimestamp: "2024-08-05T13:59:12Z"
+  generation: 3744682
+  name: host2
+  namespace: openshift-storage
+  ownerReferences:
+  - apiVersion: lvm.topolvm.io/v1alpha1
+    kind: LVMVolumeGroup
+    name: vg1
+    uid: 8ba3bde8-ec52-4a58-a830-fe0eb4513aeb
+  resourceVersion: "63859509"
+  uid: 47e732c9-63a9-47a7-b49e-de7cc04e3b17
+spec:
+  nodeStatus:
+  - deviceDiscoveryPolicy: RuntimeDynamic
+    devices:
+    - /dev/sdb
+    - '[unknown]'
+    excluded:
+    - name: /dev/sda
+      reasons:
+      - /dev/sda has children block devices and could not be considered
+    - name: /dev/sda1
+      reasons:
+      - /dev/sda1 has an invalid partition label "BIOS-BOOT"
+    - name: /dev/sda2
+      reasons:
+      - /dev/sda2 has an invalid filesystem signature (vfat) and cannot be used
+    - name: /dev/sda3
+      reasons:
+      - /dev/sda3 has an invalid filesystem signature (ext4) and cannot be used
+      - /dev/sda3 has an invalid partition label "boot"
+    - name: /dev/sda4
+      reasons:
+      - /dev/sda4 has an invalid filesystem signature (xfs) and cannot be used
+    - name: /dev/sdc
+      reasons:
+      - /dev/sdc has children block devices and could not be considered
+    - name: /dev/sdc1
+      reasons:
+      - /dev/sdc1 has an invalid filesystem signature (xfs) and cannot be used
+    - name: /dev/sr0
+      reasons:
+      - /dev/sr0 has a device type of "rom" which is unsupported
+      - /dev/sr0 has an invalid filesystem signature (iso9660) and cannot be used
+    name: vg1
+    reason: |-
+      failed to create/extend volume group vg1: failed to extend volume group vg1: failed to extend volume group "vg1". exit status 5: Cannot use /dev/nbd0: device is too small (pv_min_size)
+        Cannot use /dev/nbd1: device is too small (pv_min_size)
+        Cannot use /dev/nbd2: device is too small (pv_min_size)
+        Cannot use /dev/nbd3: device is too small (pv_min_size)
+        Cannot use /dev/nbd4: device is too small (pv_min_size)
+        Cannot use /dev/nbd5: device is too small (pv_min_size)
+        Cannot use /dev/nbd6: device is too small (pv_min_size)
+        Cannot use /dev/nbd7: device is too small (pv_min_size)
+        Cannot use /dev/nbd8: device is too small (pv_min_size)
+        Cannot use /dev/nbd9: device is too small (pv_min_size)
+        Cannot use /dev/nbd10: device is too small (pv_min_size)
+        Cannot use /dev/nbd11: device is too small (pv_min_size)
+        Cannot use /dev/nbd12: device is too small (pv_min_size)
+        Cannot use /dev/nbd13: device is too small (pv_min_size)
+        Cannot use /dev/nbd14: device is too small (pv_min_size)
+        Cannot use /dev/nbd15: device is too small (pv_min_size)
+        Command requires all devices to be found.
+    status: Degraded

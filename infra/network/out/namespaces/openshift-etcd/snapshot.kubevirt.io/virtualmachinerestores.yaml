@@ -1,0 +1,7 @@
+---
+apiVersion: snapshot.kubevirt.io/v1alpha1
+items: []
+kind: VirtualMachineRestoreList
+metadata:
+  continue: ""
+  resourceVersion: "42198330"
