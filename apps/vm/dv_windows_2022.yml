@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   storage:
-    storageClassName: rook-cephfs
+    storageClassName: ocs-storagecluster-ceph-rbd-virtualization
     resources:
       requests:
         storage: 60Gi
