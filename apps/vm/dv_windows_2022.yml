@@ -9,7 +9,7 @@ spec:
       - ReadWriteOnce
     resources:
       requests:
-        storage: 60Gi
+        storage: 100Gi
   source:
     http:
       url: "http://192.168.0.5/packer-win2022"
