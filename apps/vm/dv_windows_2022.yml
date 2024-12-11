@@ -4,8 +4,9 @@ metadata:
   name: "packer-windows-2022"
   namespace: default
 spec:
-  storage:
-    storageClassName: ocs-storagecluster-ceph-rbd-virtualization
+  pvc:
+    accessModes:
+      - ReadWriteOnce
     resources:
       requests:
         storage: 60Gi
