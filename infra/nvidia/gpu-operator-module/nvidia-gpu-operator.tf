@@ -11,8 +11,8 @@ resource "kubernetes_operator" "namespace_nvidia_gpu_operator" {
     }
   }
 }
-resource "kubernetes_manifest" "operatorgroup_nvidia_gpu_operator_nvidia_gpu_operator_group" {
-  depends_on = [kubernetes_manifest.namespace_nvidia_gpu_operator]
+resource "kubernetes_operator_group" "operatorgroup_nvidia_gpu_operator_nvidia_gpu_operator_group" {
+  depends_on = [kubernetes_operator.namespace_nvidia_gpu_operator]
   manifest = {
     "apiVersion" = "operators.coreos.com/v1"
     "kind" = "OperatorGroup"
@@ -27,8 +27,8 @@ resource "kubernetes_manifest" "operatorgroup_nvidia_gpu_operator_nvidia_gpu_ope
     }
   }
 }
-resource "kubernetes_manifest" "subscription_nvidia_gpu_operator_gpu_operator_certified" {
-  depends_on = [kubernetes_manifest.operatorgroup_nvidia_gpu_operator_nvidia_gpu_operator_group]
+resource "kubernetes_subscription" "subscription_nvidia_gpu_operator_gpu_operator_certified" {
+  depends_on = [kubernetes_operator_group.operatorgroup_nvidia_gpu_operator_nvidia_gpu_operator_group]
   manifest = {
     "apiVersion" = "operators.coreos.com/v1alpha1"
     "kind" = "Subscription"
