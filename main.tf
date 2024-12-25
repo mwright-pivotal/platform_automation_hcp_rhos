@@ -37,9 +37,13 @@ resource "kubernetes_manifest" "windows2022-vm" {
   manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/win2022-vm.yml"))
 }
 
-#module "gpu-operator" {
-#   source = "./infra/nvidia/gpu-operator-module"
-#}
+module "nfd-operator" {
+   source = "./infra/nvidia/nfd-module"
+}
+
+module "gpu-operator" {
+   source = "./infra/nvidia/gpu-operator-module"
+}
 module "ai-workspace-mike" {
    source = "./apps/ai"
 }
