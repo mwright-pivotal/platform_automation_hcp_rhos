@@ -1,4 +1,4 @@
-resource "kubernetes_manifest" "namespace_nvidia_gpu_operator" {
+resource "kubernetes_operator" "namespace_nvidia_gpu_operator" {
   manifest = {
     "apiVersion" = "v1"
     "kind" = "Namespace"
