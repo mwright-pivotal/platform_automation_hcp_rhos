@@ -19,7 +19,7 @@ resource "kubernetes_manifest" "windows2022-vm-import" {
 resource "kubernetes_manifest" "windows2022-vm" {
   manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/win2022-vm.yml"))
 }
-resource "kubernetes_manifest" "windows2022-vm-import" {
+resource "kubernetes_manifest" "windows2019-sqlserver-vm-import" {
   manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/dv_windows_2019_sqlserver.yml"))
 }
 resource "kubernetes_manifest" "windows2019-sqlserver-vm" {
