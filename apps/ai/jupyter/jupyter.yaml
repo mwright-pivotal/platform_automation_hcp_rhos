@@ -17,20 +17,40 @@ spec:
     app: jupyter
 ---
 apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jupyter-work
+spec:
+  storageClassName: ocs-storagecluster-cephfs
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 30Gi
+---
+apiVersion: v1
 kind: Pod
 metadata:
   name: jupyter
   namespace: default
   annotations:
     vault.hashicorp.com/agent-inject: 'true'
-    vault.hashicorp.com/role: 'jupyter'
-    vault.hashicorp.com/agent-inject-secret-api-keys.env: 'secret/data/jupyter/config'
+    vault.hashicorp.com/role: 'builder'
+    vault.hashicorp.com/agent-inject-secret-api-keys.env: 'internal/database/config'
     vault.hashicorp.com/tls-skip-verify: "true"
   labels:
     app: jupyter
 spec:
+  volumes:
+    - name: jupyter-work
+      persistentVolumeClaim:
+        claimName: jupyter-work
+    - name: shm
+      emptyDir:
+        medium: Memory
   securityContext:
     fsGroup: 0
+  serviceAccountName: builder
   containers:
   - name: jupyter
     #image: tensorflow/tensorflow:latest-gpu-jupyter
@@ -38,7 +58,17 @@ spec:
     imagePullPolicy: Always
     resources:
       limits:
-        nvidia.com/gpu: 1 
+        nvidia.com/gpu: 1
     ports:
     - containerPort: 8888
       name: notebook
+    volumeMounts:
+        - mountPath: "/home/jovyan/work"
+          name: jupyter-work
+        - mountPath: /dev/shm
+          name: shm
+# vault write auth/kubernetes/role/builder \
+#       bound_service_account_names=builder \
+#       bound_service_account_namespaces=default \
+#       policies=internal-app \
+#       ttl=24h

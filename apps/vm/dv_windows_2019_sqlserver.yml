@@ -1,0 +1,15 @@
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
+metadata:
+  name: "packer-windows-2019-sqlserver"
+  namespace: default
+spec:
+  pvc:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 100Gi
+  source:
+    http:
+      url: "http://192.168.0.5/packer-win2019"

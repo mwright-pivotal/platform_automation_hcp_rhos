@@ -24,6 +24,10 @@ metadata:
   labels:
     app: llama3-8b-instruct
 spec:
+  volumes:
+    - name: shm
+      emptyDir:
+        medium: Memory
   securityContext:
     fsGroup: 0
   containers:
@@ -32,10 +36,13 @@ spec:
     image: nvcr.io/nim/mistralai/mistral-7b-instruct-v03:latest
     env:
     - name: NGC_API_KEY
-      value: "N2MycjUzNTdzbGtpaTl0azBsZHVnMDg1N2o6Y2ExNmY0MDUtYzY0NC00NWNkLTkxOWEtMjA2ZWI0ZGMzMGJl"
+      value: "N2MycjUzNTdzbGtpaTl0azBsZHVnMDg1N2o6NzhjMzc4ODktOWJiZS00MTQ3LWFjMTItOGQzZTEzMDg5ZWVi"
     resources:
       limits:
         nvidia.com/gpu: 1
+    volumeMounts:
+        - mountPath: /dev/shm
+          name: shm
     ports:
     - containerPort: 8000
       name: nim

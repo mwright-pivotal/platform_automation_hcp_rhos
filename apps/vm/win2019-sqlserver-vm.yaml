@@ -1,0 +1,45 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  labels:
+    kubevirt.io/os: windows
+  name: win2019-sqlserver
+  namespace: default
+spec:
+  running: true
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        kubevirt.io/domain: win2019
+    spec:
+      domain:
+        cpu:
+          cores: 2
+        devices:
+          disks:
+          - disk:
+              bus: virtio
+            name: disk0
+          - cdrom:
+              bus: sata
+              readonly: true
+            name: cloudinitdisk
+        machine:
+          type: q35
+        resources:
+          requests:
+            memory: 8196M
+      volumes:
+      - name: disk0
+        persistentVolumeClaim:
+          claimName: packer-windows-2019-sqlserver
+      - cloudInitNoCloud:
+          userData: |
+            #cloud-config
+            hostname: sqlserver
+            ssh_pwauth: True
+            disable_root: false
+            ssh_authorized_keys:
+            - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDX...
+        name: cloudinitdisk
