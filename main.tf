@@ -13,37 +13,15 @@ terraform {
   }
 }
 
-# module "rook-cluster" {
-#   source = "./infra/rook/cluster"
-#   depends_on = [module.rook-operator.operator]
-#}
-
-resource "kubernetes_manifest" "vault" {
-  for_each = { for k, v in provider::kubernetes::manifest_decode_multi(file("${path.module}/infra/vault/install.yaml")) : k => v }
-  manifest = each.value
-  field_manager {
-    # set the name of the field manager
-    name = "myteam"
-
-    # force field manager conflicts to be overridden
-    force_conflicts = true
-  }
-}
-
 resource "kubernetes_manifest" "windows2022-vm-import" {
   manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/dv_windows_2022.yml"))
 }
 resource "kubernetes_manifest" "windows2022-vm" {
   manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/win2022-vm.yml"))
 }
-
-module "nfd-operator" {
-   source = "./infra/nvidia/nfd-module"
+resource "kubernetes_manifest" "windows2022-vm-import" {
+  manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/dv_windows_2019_sqlserver.yml"))
 }
-
-module "gpu-operator" {
-   source = "./infra/nvidia/gpu-operator-module"
-}
-module "ai-workspace-mike" {
-   source = "./apps/ai"
+resource "kubernetes_manifest" "windows2019-sqlserver-vm" {
+  manifest = provider::kubernetes::manifest_decode(file("${path.module}/apps/vm/win2019-sqlserver-vm.yaml"))
 }
